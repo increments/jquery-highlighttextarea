@@ -71,7 +71,7 @@
         	if (this.settings.wordsOnly ) {
         		that.spacer = '\\b';
         	}
-        	
+
         $.each(this.settings.words, function(color, words) {
             text = text.replace(
                 new RegExp(that.spacer+'('+ words.join('|') +')'+that.spacer, that.regParam),
@@ -266,8 +266,8 @@
         this.$container.css({
             'top':        Utilities.toPx(this.$el.css('margin-top')) + Utilities.toPx(this.$el.css('border-top-width')),
             'left':     Utilities.toPx(this.$el.css('margin-left')) + Utilities.toPx(this.$el.css('border-left-width')),
-            'width':    this.$el.width(),
-            'height': this.$el.height()
+            'width':    this.$el.outerWidth(),
+            'height': this.$el.outerHeight()
         });
 
         // the highlighter has the same size than the "inner" textarea and must have the same font properties
