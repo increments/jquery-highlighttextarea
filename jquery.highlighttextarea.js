@@ -252,10 +252,6 @@
         Utilities.cloneCss(this.$el, this.$main, [
             'float','vertical-align'
         ]);
-        this.$main.css({
-            'width':    this.$el.outerWidth(true),
-            'height': this.$el.outerHeight(true)
-        });
 
         // the highlighter container is positionned at "real" top-left corner of the textarea and takes its background
         Utilities.cloneCss(this.$el, this.$container, [
@@ -266,8 +262,6 @@
         this.$container.css({
             'top':        Utilities.toPx(this.$el.css('margin-top')) + Utilities.toPx(this.$el.css('border-top-width')),
             'left':     Utilities.toPx(this.$el.css('margin-left')) + Utilities.toPx(this.$el.css('border-left-width')),
-            'width':    this.$el.outerWidth(),
-            'height': this.$el.outerHeight()
         });
 
         // the highlighter has the same size than the "inner" textarea and must have the same font properties
@@ -301,18 +295,6 @@
      * @param forced {boolean} true to resize containers
      */
     Highlighter.prototype.updateSizePosition = function(forced) {
-        // resize containers
-        if (forced) {
-            this.$main.css({
-                'width':    this.$el.outerWidth(true),
-                'height': this.$el.outerHeight(true)
-            });
-            this.$container.css({
-                'width':    this.$el.width(),
-                'height': this.$el.height()
-            });
-        }
-
         var padding = 0, width;
 
         if (!this.isInput) {
